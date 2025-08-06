@@ -1,10 +1,117 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-    <html>
-    <head>
-    <title>Redirecting</title>
-    <meta http-equiv="REFRESH" content="0;url=src\static\index.html">
-    </head>
-    <body>
-    <center> Redirecting to the project. </center>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuesThink - AI MCQ Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="light-mode">
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">QuesThink</div>
+                <div class="theme-toggle" onclick="toggleTheme()">
+                    <div class="toggle-slider" id="toggle-slider">
+                        <span id="theme-icon">☀️</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1>Generate Smart MCQs & Quizzes</h1>
+                <p>From textbooks to test banks—AI does the grind.</p>
+            </section>
+
+            <section class="input-containers">
+                <div class="input-container">
+                    <h3>📄 PDF Document</h3>
+                    <div class="file-input-wrapper">
+                        <input type="file" id="pdf-upload" class="file-input" accept=".pdf"
+                            onchange="handleFileSelect(this)">
+                        <label for="pdf-upload" class="file-input-label" id="file-label">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📎</div>
+                            <div>Click to upload PDF</div>
+                            <div style="font-size: 0.9rem; opacity: 0.7;">or drag and drop</div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <h3>🎥 YouTube Video</h3>
+                    <input type="url" id="youtube-url" class="url-input" placeholder="https://youtube.com/watch?v=..."
+                        onchange="handleUrlInput(this)">
+                    <div
+                        style="margin-top: 15px; font-size: 0.9rem; color: var(--text-secondary-light); text-align: center;">
+                        Paste any YouTube video URL to extract content
+                    </div>
+                </div>
+            </section>
+
+            <section class="generation-options">
+                <h3>⚙️ Generation Options</h3>
+
+                <div class="option-tabs">
+                    <button class="tab-btn active" onclick="switchTab('mcq')">📝 MCQ Generation</button>
+                    <button class="tab-btn" onclick="switchTab('quiz')">🎯 Quiz Generation</button>
+                </div>
+
+                <div class="options-grid">
+                    <div class="option-group">
+                        <label for="difficulty">🎚️ Difficulty Level</label>
+                        <select id="difficulty" class="select-input">
+                            <option value="easy">🟢 Easy</option>
+                            <option value="medium" selected>🟡 Medium</option>
+                            <option value="hard">🔴 Hard</option>
+                            <option value="mixed">🎭 Mixed</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="num-questions">🔢 Number of Questions</label>
+                        <input type="number" id="num-questions" class="number-input" min="5" max="50" value="10"
+                            placeholder="10">
+                    </div>
+                </div>
+
+                <button type="submit" class="generate-btn" onclick="generateContent()">
+                    <span id="btn-text">⚡ Generate MCQs</span>
+                </button>
+            </section>
+
+            <section class="features">
+                <h2>Why Choose QuesThink?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI-Powered</h3>
+                        <p>Advanced natural language processing creates intelligent, contextually relevant questions
+                            from your content</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Customizable & Quick</h3>
+                        <p>Choose difficulty levels, question count, and format. Create MCQs and interactive quizzes
+                            tailored to your needs, lightning fast</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Multiple Formats</h3>
+                        <p>Support for PDF documents and YouTube videos. Extract knowledge from various content types
+                            effortlessly</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Made with ❤ by BuildBeyond.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
